@@ -1,12 +1,11 @@
 name: Automated API Tests
-
 on:
   push:
+    branches: [ main ]  # 明确指定分支
   pull_request:
   schedule:
-    # 每一个小时执行一次（在每小时的第0分钟）
-    - cron: '0 */1 * * *'
-  workflow_dispatch:  # 允许手动触发
+    - cron: '0 * * * *'  # 简化为 '0 * * * *' 也可以表示每小时
+  workflow_dispatch:
 
 jobs:
   build:
