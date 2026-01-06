@@ -1,6 +1,12 @@
 name: Automated API Tests
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
+  schedule:
+    # 每两个小时执行一次（在每小时的第0分钟）
+    - cron: '0 */2 * * *'
+  workflow_dispatch:  # 允许手动触发
 
 jobs:
   build:
